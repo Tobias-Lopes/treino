@@ -1,0 +1,80 @@
+/* Centrar o formulário no ecrã (útil se esta for a página principal) */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Um cinzento muito claro para contrastar com o branco */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* O teu contentor principal */
+.box {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px; /* Cantos arredondados suaves */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra elegante à volta da caixa */
+  width: 100%;
+  max-width: 400px; /* Impede que fique gigante em ecrãs grandes */
+  box-sizing: border-box;
+}
+
+/* O título */
+.box h1 {
+  text-align: center;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* O formulário a usar Flexbox para organizar os inputs */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* A magia do Flexbox: cria espaço uniforme entre os inputs automaticamente */
+}
+
+/* As caixas de texto */
+input {
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f9fafb;
+  transition: all 0.3s ease; /* Faz com que as mudanças de cor sejam suaves */
+  outline: none; /* Remove aquela linha azul feia padrão dos navegadores */
+}
+
+/* Quando clicas no input para escrever (estado de focus) */
+input:focus {
+  background-color: #ffffff;
+  border-color: #3b82f6; /* Um azul moderno */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Um brilho azul à volta da caixa */
+}
+
+/* O botão de submeter */
+button {
+  margin-top: 8px;
+  padding: 14px;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Quando passas o rato por cima do botão */
+button:hover {
+  background-color: #2563eb; /* Fica ligeiramente mais escuro */
+}
+
+/* Quando clicas fisicamente no botão */
+button:active {
+  transform: scale(0.98); /* Dá a ilusão tátil de que o botão afundou */
+}
