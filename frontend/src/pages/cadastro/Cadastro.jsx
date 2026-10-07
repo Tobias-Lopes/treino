@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import api from '../services/api'; // Importa a configuração do Axios
+import api from '../../services/api'; // Importa a configuração do Axios
 import './style.css'; // Importa o visual moderno
 
 function Cadastro() {
   // 1. O nosso "cesto" que guarda os dados do formulário
   const [formData, setFormData] = useState({
     nome: '',
+    username: '',
     email: '',
     senha: '',
-    tel: ''
+    telefone: ''
   });
 
   // 2. O "vigia" que atualiza o estado a cada tecla pressionada
@@ -25,17 +26,18 @@ function Cadastro() {
     e.preventDefault(); // Impede a tela de piscar/recarregar
 
     try {
-      // Dispara o POST para http://localhost:8080/cadastrar enviando o JSON do formData
-      const resposta = await api.post('/cadastrar', formData);
+      // Dispara o POST para http://localhost:8080/usuarios enviando o JSON do formData
+      const resposta = await api.post('/usuarios', formData);
       
-      console.log("Resposta do backend:", resposta.data);
+      console.log("Salvo no banco de dados:", resposta.data);
       
       // Limpa os campos da tela instantaneamente após o sucesso
       setFormData({ 
         nome: '', 
+        username: '',
         email: '', 
         senha: '', 
-        tel: '' 
+        telefone: '' 
       });
       
       alert("Cadastro enviado com sucesso!");
@@ -59,6 +61,14 @@ function Cadastro() {
           onChange={handleChange}
           required
         />
+        <input
+         type="text"
+         name="username"
+         placeholder='Nome de usuário'
+         value={formData.username}
+         onChange={handleChange}
+         required 
+        />
         <input 
           type="email" 
           name="email" 
@@ -77,9 +87,9 @@ function Cadastro() {
         />
         <input 
           type="text" 
-          name="tel" 
+          name="telefone" 
           placeholder="Telefone" 
-          value={formData.tel}
+          value={formData.telefone}
           onChange={handleChange}
           required
         />
